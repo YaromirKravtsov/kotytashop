@@ -1,0 +1,117 @@
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 90px;
+    box-shadow: 0px -4px 20px 0px rgba(0, 0, 0, 0.11);
+    padding-bottom: 50px;
+    }
+    
+    .footer__row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    }
+    .footerLine {
+    width: 100%;
+    margin-top: 60px;
+    height: 1.5px;
+    background: #EAECF0;
+    }
+    .footerMain {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    }
+    .footerMain__row {
+    display: flex;
+    flex-direction: column;
+    }
+    .footerMain__rowLogo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    }
+    .footerMain__rowLogo img{
+    width: 53px;
+    height: 89px;
+    }
+    .footerMain__rowLogo p{
+    color: #272727;
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    }
+    .footerMain__rowContact { 
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;  
+    }
+    .footerMain__rowContact a{ 
+    margin-left: 12px;
+    color: #667085;
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    }
+    
+    
+    .footerMain__rowReserved {
+    margin-top: 35px;
+    color: var(--gray-500, #667085);
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    }
+    .footerMain__row:nth-child(2){
+    margin-left: auto;
+    }
+    .footerMain__row:last-child{
+    margin-left: 80px;
+    }
+    .footerMain__rowTitle { 
+    color: #E8B9C3;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    margin-bottom: 5px;
+    }
+    .footerMain__rowText {
+    margin-top: 20px;
+    color: var(--gray-600, #475467);
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    }
+    @media (max-width:880px){
+    .footerMain__row:nth-child(2){
+    display: none;
+    }
+    .footerMain__row:nth-child(3){
+    margin-left: auto;
+    }
+    }
+    @media (max-width:650px){
+    .footerMain{
+      flex-direction: column;
+    
+    }
+    .footerMain__row:nth-child(3){
+      margin-left: 0;
+      margin-top: 30px;
+    }
+    }

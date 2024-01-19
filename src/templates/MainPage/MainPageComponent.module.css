@@ -1,0 +1,388 @@
+
+/* ----------------------Poster-------------------- */
+.poster {
+    min-width: 100%;
+    height: 746px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (min-width: 1440px){
+    .poster {
+      background-size: 100%;
+    }
+  }
+    .posterRow {
+      width: 771.403px;
+    
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 15px;
+      background: rgba(247, 248, 250, 0.85);
+      backdrop-filter: blur(12px);
+    }
+    .posterTitle {
+      width: 540px;
+      margin-top: 46px;
+      color: #000;
+      text-align: center;
+      font-family: 'Montserrat';
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 57.6px; 
+    }
+    .posterText {
+      width: 540px;
+      margin-top: 7px;
+      color: #1D252C;
+      text-align: center;
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Helvetica;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 25.6px; 
+    }
+    .posterButton {
+        display: block;
+      margin: 50px auto;
+      width: 330px;
+      height: 40px;
+      border-radius: 4px;
+      background: #EEC5CD;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #FFF;
+      text-align: center;
+      font-family: 'Roboto';
+      font-size: 20.645px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .posterButton:hover{
+      color: #FFF;
+    }
+    @media (max-width: 795px){
+      .posterRow
+      
+      
+      {
+        width: 90%;
+      }
+    }
+    @media (max-width: 620px){
+      .posterTitle{
+        margin-top: 30px;
+        font-size: 35px;
+        line-height: 40px;
+    
+      }
+      .posterText{
+        width: 90%;
+      }
+      .posterButton{
+        margin-top: 25px;
+      }
+    }
+    @media (max-width: 510px){
+      .posterTitle{
+        font-size: 30px;
+        line-height: 35px;
+        width: 90%;
+      }
+    }
+    @media (max-width: 400px){
+      .posterButton{
+        width: 90%;
+      }
+    }
+    /* ----------------------products-------------------- */
+    .products {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .products__row {
+      display: flex;
+      flex-direction: column;
+   
+    }
+    .productsTitle { 
+      margin-top: 50px;
+      color: #0B254B;
+      text-align: center;
+      font-family: 'Montserrat';
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 57.6px; 
+      letter-spacing: -0.9px;
+    }
+    .productsText {
+      margin-top: 15px;
+      color: var(--dark-1, #5E6E89);
+      text-align: center;
+      font-family: 'Roboto';
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 27.6px; 
+      letter-spacing: 0.1px;
+    }
+    .products__cards {
+      width: 100%;
+      margin-top: 75px;
+      display: flex;
+      justify-content: space-between;
+     
+
+      height: 413px;
+      grid-column: 230px;
+    }
+    
+    .catalog--button {
+      width: 255px;
+      height: 50px;
+      margin: 50px auto 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 90px;
+      border: 1px solid var(--Gray_1, #777E90);
+      color: var(--02, #23262F);
+      text-align: center;
+      font-family: 'Roboto';
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 16px; 
+      cursor: pointer;
+    }
+    
+   
+    /* --------------------------Advantages---------------------------- */
+    .advantages {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 90px;
+    }
+    .advantages__row {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .advantagesTitle {
+      color: #000;
+      font-family: 'Montserrat';
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 46.6px; 
+      letter-spacing: -0.9px;
+    
+    }
+    .advantages--text {
+      margin-top: 15px;
+      color: #475467;
+      font-family: 'Roboto';
+      font-size: 15.5px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22.8px; 
+    }
+    .advantages__main {
+      display: flex;
+      margin-top: 30px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .advantages__mainLeft {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      width: 50%;
+      padding-right: 20px;
+    }
+    .advantages__card {
+      margin-top: 15px;
+      display: flex;
+      flex-direction: row;
+    }
+    .advantages__card:last-child{
+      margin-top: auto;
+    }
+    .advantages__card:nth-child(2){
+      margin: auto 0;
+    }
+    .advantages__cardImg {
+      width: 50px;
+      height: 50px;
+    }
+    .advantages__cardRight {
+      margin-left: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .advantages__cardTitle {
+      margin-top: 5px;
+      color: #000;
+      font-family: 'Roboto';
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 30px; 
+    }
+    .advantages__cardText {
+      margin-top: 10px;
+      color: #000;
+      font-family: 'Roboto';
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px; 
+    }
+    .advantages__mainRight {
+      width: 60%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      filter: drop-shadow(0px 4px 94px rgba(0, 0, 0, 0.25));
+    }
+    .advantages__mainImg { 
+      width: auto;
+      height: 400px;
+    }
+    @media (max-width:950px){
+      .advantages__card{
+        margin-top: 5px;
+      }
+      .advantages__card--text{
+        margin-top: 0px;
+        margin-right: 0;
+        font-size: 17px;
+      }
+    }
+    @media (max-width:765px){
+      .advantages__main{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .advantages__mainRight {
+        width: 100%;
+        margin-top: 30px;
+      }
+      .advantages__mainImg { 
+        width: 100%;
+        height: auto;
+      }
+      .advantages__mainLeft {
+        width: 100%;
+      }
+      .advantages__card{
+        margin-top: 15px !important;
+      }
+    }
+    
+    /* -----------------------About us------------------------ */
+    .aboutUs {
+      margin-top: 90px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .aboutUsRow {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+    .aboutUsImages {
+      width: 428.998px;
+      height: 392px;
+      height: auto;
+    }
+    .aboutUsImages img{
+      width: 100%;
+      height: auto;
+    }
+    .aboutUs__main {
+      width: 50%;
+      margin-left: auto;
+    }
+    .aboutUsMainTitle {
+      color: #000;
+      font-family: 'Montserrat';
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    .aaboutUs__mainText {
+      margin-top: 50px;
+      color: #000;
+      font-family: 'Roboto';
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 135.2%; 
+    }
+    .aboutUs__mainButton {
+      margin-top: 62px;
+      width: 200px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      background: #EEC5CD;
+    
+      color: #FFF;
+      text-align: center;
+      font-family: 'Roboto';
+      font-size: 20.645px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+    @media (max-width:830px){
+      .aaboutUs__mainText{
+        margin-top: 20px;
+      }
+    }
+    @media (max-width:810px){
+      .aboutUsMainTitle {
+        color: #000;
+        font-family: 'Montserrat';
+        font-size: 35px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    }
+    @media (max-width:760px){
+      .aboutUsRow{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+      }
+      .aboutUs__main{
+        width: 100%;
+      }
+      .aboutUsImages{
+        width: 390px;
+        height: auto;
+        margin-top: 45px;
+      }
+    }
