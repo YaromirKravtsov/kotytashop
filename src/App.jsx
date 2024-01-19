@@ -9,7 +9,11 @@ import ProductPageComponent from './templates/ProductPage/ProductPageComponent'
 import CatalogPageComponent from './templates/CatalogPage/CatalogPageComponent';
 function App() {
     const [products, setProducts] = useState([]);
-    const [cartCount, setCartCount] = useState(0);
+    const cart = JSON.parse(localStorage.getItem('cartData'));
+
+    const [cartCount, setCartCount] = useState(
+        cart.length
+    );
  
 
     return (
@@ -17,12 +21,8 @@ function App() {
             <HeaderComponent cartCount ={cartCount}/>
             <Routes>
                  <Route path="/" element={<MainPage />} />
-                 <Route path="/product/:slug" element={<ProductPageComponent/>} />
+                 <Route path="/product/:slug" element={<ProductPageComponent setCartCount ={setCartCount}/>} />
                  <Route path="/catalog" element={<CatalogPageComponent/>} />
-               {/*  <Route path="/tasks" element={<TasksComponent />} />
-                <Route path="/task/:taskId" element={<SingleTaskComponent/>} />
-                <Route path="/add-new-worker" element={<NewWorkerComponent/>} />
-                <Route path="/profile" element={<ProfileComponent/>} /> */}
             </Routes>
             <FooterComponent/>
         </div>

@@ -6,7 +6,7 @@ import { useFettching } from '../../hooks/useFetching';
 import MyLoader from '../../UI/Loader/MyLoader';
 import ImageSlider from '../../UI/ImageSlider/ImageSlider';
 import SuccesComponent from '../../blocks/Success/SuccesComponent';
-const ProductPageComponent = () => {
+const ProductPageComponent = ({setCartCount}) => {
     const navigate = useNavigate();
     const { slug } = useParams();
 
@@ -45,11 +45,12 @@ const ProductPageComponent = () => {
     
         return newCart;
     }
-    const handelAddToCart = () => {
+    const handelAddToCart = () => {console.log(product.attributes)//
         if (selectedOption) {
             setIsChosed(true);
             setSuccesBar(true);
-        } else {
+            
+        } else if(product.options){
             setIsChosed(false);
             return; // Exit the function if no option is selected
         }
@@ -64,6 +65,7 @@ const ProductPageComponent = () => {
         };
     
         const newCartData = addToCardArr(cartData, productToCart);
+        setCartCount(newCartData.length)
         localStorage.setItem('cartData', JSON.stringify(newCartData));
     };
     
@@ -112,7 +114,7 @@ const ProductPageComponent = () => {
                 )
                 :(
                    <div className={style.page}>
-                   <div class="container">{console.log(product)}
+                   <div class="container">{console.log(product.options)}
                         <div class={style.pageRow}>
                             <div class={style.pageMain}>
                                 <div className={style.photoBlock}>
