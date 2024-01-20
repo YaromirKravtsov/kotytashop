@@ -50,7 +50,6 @@ const CatalogPageComponent = () => {
         event.stopPropagation();
         const filteredProducts = filterProductsByCategory(products, category);
 
-        alert(category)
         setOutputProducts(
             filteredProducts
         )
