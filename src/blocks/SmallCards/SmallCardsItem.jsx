@@ -9,13 +9,13 @@ const SmallCardsItem = ({product}) => {
 
     return (
         <>
-            <Link to = {`product/${product.slug}`} className={style.item}>
+            <Link to={`/product/'${product.slug}`} className={style.item}>
                     <div className={style.imageWraper}>
-                        <img src={product.image_url} alt="product img" className={style.image} loading="lazy" />
+                        <img src={product.image_url} alt={`${product.name} ${product.short_description}`} className={style.image} loading="lazy" />
                     </div>
                     
-                    <div className={style.title}>{product.name}</div>
-                    <div className={style.shortDescription}>{product.short_description}</div>
+                    <h2 className={style.title}>{product.name}</h2>
+                    <p className={style.shortDescription}>{product.short_description}</p>
                     {product.is_on_sale?(  
                         <div className={style.price}> <span style={{textDecoration:'line-through'}}>{product.regular_price}₴</span> {product.sale_price}₴</div>
                     ):(

@@ -5,7 +5,7 @@ import SmallCardsItem from './SmallCardsItem';
 const SmallCardsList = ({products}) => {
     return (
         <>
-            {products.map((product,index)=>(
+            {products?.map((product,index)=>(
                <SmallCardsItem key ={index}product={product}/>
             ))}
         </>

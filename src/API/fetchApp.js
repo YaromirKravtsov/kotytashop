@@ -1,12 +1,10 @@
-const hostUrl = 'http://kotyatashop/wp-json/api';
+const hostUrl = 'http://kotyatashop.com/wp-json/api';
 
-export const fetchProducts = async () => {
+export const fetchProductsApi = async () => {
   try{
-    const response =await fetch(`${hostUrl}/get-short-products`)
+    const response = await fetch(`${hostUrl}/get-short-products`)
     const data = await response.json();
-    if (!response.ok) {
-      throw new Error('Network response was not ok: ' + response.statusText);
-    }
+
     return data;
   }catch(e){
     console.log(e);

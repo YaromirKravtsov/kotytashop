@@ -39,7 +39,7 @@
     width: 56px;
     height: 68px;
     }
-    .header__logo div{
+    .header__logo div,.header__logo h1 {
     margin-left: 3px;
     color: #272727;
     text-align: center;

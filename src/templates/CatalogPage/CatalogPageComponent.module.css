@@ -1,0 +1,387 @@
+.container {
+    height: 100%;
+  }
+  .catalog {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .catalog__row{
+      display: flex;
+      flex-direction: column;
+    }
+    .catalogPoster {
+      width: 100%;
+      height: 542px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* background-image: url('../img/catalog/poster-bac.png') ; */
+      background-size: 100% 100%;
+
+    
+    }
+    .catalogPoster__row {
+      margin-left: -100px;
+      width: 576px;
+      height: 260px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+     /*  background-image: url('../img/catalog/Vector.png'); */
+      background-size: 100% 100%;
+    }
+    .catalogPoster__rowTitle {
+      width: 90%;
+      margin-top: 35px;
+      color: #23262F;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 45px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 45px; 
+     
+    }
+    .catalogPoster__rowText {
+      margin-top: 10px;
+      width: 70%;
+      color: #23262F;
+      text-align: center;
+      font-family: 'Roboto';
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 32px; /* 133.333% */
+      letter-spacing: -0.24px;
+    }
+    @media (max-width:1000px) {
+      .catalogPoster__row {
+          width: 519px;
+          height: 234px;
+          margin-top: 100px;
+          
+      }
+      .catalogPoster__rowTitle {
+          font-size: 35px;
+          line-height: 38px;
+      }
+    }   
+      @media (max-width:1000px) {
+          .catalogPoster {
+     /*          background-image: url('../img/catalog/poster-bac-phonr.png'); */
+          }
+          .catalogPoster__row {
+            margin: 100px auto;
+              
+          }
+      }
+    /* ------------------------------------------------------------- */
+    .catalogBar {
+  
+      width: 100%;
+      display: block;
+      justify-content: center;
+      align-items: center;
+      margin-top: -35px;
+     
+    }
+    .catalogBar__row{
+  
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 70px;
+      border-radius: 25px;
+      background: #F6F3F1;
+   
+    }
+    .catalogBarCategory__row{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      transition: transform 1s;
+    }
+    .catalogBarCategory {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      
+      align-items: center;
+      cursor: pointer;
+    }
+    .catalogBarCategory p{
+      display: block;
+      color: #000;
+      text-align: center;
+      font-family: 'Roboto';
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+      margin: auto 0;
+    
+    }
+    .catalogBarCategory svg{
+      margin: auto 0;
+      margin-left: 5px;
+      width: 20px;
+      height: 8px;
+    }
+    .catalogBarMenu{
+      display: none;
+      cursor: pointer;
+      
+      justify-content: center;
+      align-items: center;
+    }
+   
+    .catalogBarMenu p{
+      color: #475467;
+      font-family: 'Roboto';
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px; /* 80% */
+      margin-right: 10px;
+   
+    }
+    .catalogBarMenu > svg{
+        margin-left: 7px;
+    }
+    /* ------active---- */
+    .catalogBarMenu._active{
+      width: 100%;
+      height: 70px;
+      border-radius: 25px;
+      background: #F6F3F1;
+      border: 1px solid #E6E8EC;
+      z-index: 3;
+    }
+  
+    .catalogBarCategory__row._active{
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+      margin-top: 320px;
+      padding: 30px 0;
+      padding-top: 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+  
+      border-radius: 0  0  20px 20px;
+      border: 0 0 1px 1px solid #E6E8EC;
+      background: #F6F3F1;
+      row-gap: 30px;
+  
+    }
+    .catalogBarCategory__row._active .catalogBarCategory:first-child{ 
+      font-size: 20px;
+    }
+    .svg._active{
+      transform: rotate(180deg);
+     
+    }
+
+    /* ------adaptive------ */
+  
+    @media (max-width:820px) {
+  
+      .catalogBarCategory__row{
+        display: none;
+      } 
+      .catalogBar__row{
+        border: 1px solid #E6E8EC;
+        z-index: 100;
+      }
+      .catalogBarMenu{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        
+    }
+    /* --------------------------------------------------------------------- */
+    .catalog__main {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+    
+    .catalog__main__row {
+      display: flex;
+      flex-direction: column;
+    
+    }
+    .catalog__cards {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 6%;
+      row-gap: 60px;
+      justify-content: space-between;
+    
+    
+    }
+    .catalog-products__card {
+      z-index: 1;
+      width: 285px;
+      filter: drop-shadow(0px 0px 7px rgba(123, 123, 123, 0.25));
+      background-color: #fff;
+      border-radius: 10px;
+    }
+    .catalog-products__card--img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .catalog-products__card--title {
+      margin: 15px 13px 0px 13px;
+    
+      color: #1D293F;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 27.6px; /* 172.5% */
+      letter-spacing: -0.9px;
+    }
+    .catalog-products__card--price {
+      margin: 10px 13px 10px 13px;
+     
+  
+      color: #ECC1CB;
+      font-family: 'Roboto';
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 27.6px; /* 138% */
+    }
+    .catalog-products__card--excerpt{
+      margin: 10px 13px 0px 13px;
+      color: #666;
+      font-family: 'Arial';
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px; /* 100% */
+    }
+    .catalog--button {
+      width: 255px;
+      height: 50px;
+      margin: 50px auto 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 90px;
+      border: 1px solid var(--Gray_1, #777E90);
+      color: var(--02, #23262F);
+      text-align: center;
+      font-family: 'Roboto';
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 16px; 
+      cursor: pointer;
+    }
+      /* ------adaptive------ */
+  
+      @media (max-width:1090px) {
+        .catalog-products__card {
+          width: 240px;
+        }
+      }
+      @media (max-width:940px) {
+        .catalog-products__card {
+          width: 225px;
+        }
+        .catalog__cards{
+          column-gap: 3%;
+        }
+      }
+      @media (max-width:800px) {
+        .catalog-products__card {
+          width: 200px;
+        }
+      }
+      @media (max-width:470px) {
+        .catalog-products__card {
+          width: 300px;
+          margin: 0 auto;
+        }
+        .catalog-products__card--title{
+          font-size: 20px;
+        }
+        .catalog-products__card--price{
+          font-size: 22px;
+        }
+      
+      }
+  
+  
+      .catalogBarSubCategories {
+        /* Оставьте текущие стили, но удалите 'display: none;' */
+ /*        border: 1px solid #000; */
+        padding: 20px 0;
+        position: absolute;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 18px;
+        transform: translateY(90px);
+        width: 180px;
+        height: auto;
+        border-radius: 0 0 20px 20px;
+        background: #f6f3f1;
+        z-index: 1000;
+    }
+    
+        
+      
+      .subCategory {
+        cursor: pointer;
+        justify-content: center;
+        color: #000;
+        text-align: center;
+        font-family: 'Roboto';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+    /*     margin-bottom: 20px; */
+        
+      }
+      .rotate{
+        transform: rotate(180deg);
+      }
+      .category-flex {
+        display: flex;
+      }
+      .food > .catalogBarSubCategories{
+        margin-top: 170px;
+        width: 220px;
+        margin-left: 50px;
+      
+      }
+      @media (max-width:810px){
+        .food > .catalogBarSubCategories{
+          margin-left: 50px;
+        }
+      }
+      .smakoliki> .catalogBarSubCategories{
+        margin-top: 190px;
+      }
+
+
+
+
+      
