@@ -7,6 +7,7 @@ import MainPage from './templates/MainPage/MainPageComponent';
 import FooterComponent from './includes/Footer/FooterComponent';
 import ProductPageComponent from './templates/ProductPage/ProductPageComponent'
 import CatalogPageComponent from './templates/CatalogPage/CatalogPageComponent';
+import CartPageComponent from './templates/CartPage/CartPageComponent';
 function App() {
     const [products, setProducts] = useState([]);
     const cart = JSON.parse(localStorage.getItem('cartData'));
@@ -23,6 +24,8 @@ function App() {
                  <Route path="/" element={<MainPage />} />
                  <Route path="/product/:slug" element={<ProductPageComponent setCartCount ={setCartCount}/>} />
                  <Route path="/catalog" element={<CatalogPageComponent/>} />
+                 <Route path="/cart" element={<CartPageComponent/>} />
+                 
             </Routes>
             <FooterComponent/>
         </div>

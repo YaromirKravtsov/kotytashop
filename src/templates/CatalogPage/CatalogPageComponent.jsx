@@ -55,31 +55,31 @@ const CatalogPageComponent = () => {
         )
     };
     return (
-        <div class={style.catalog}>{console.log(products)}
-            <div class={style.catalogPoster} style={{backgroundImage:`url('${poset}')`}}>
-                <div class="container">
-                    <div class={style.catalogPoster__row} style ={{backgroundImage:`url('${vector}')`}}>
-                        <div class = {style.catalogPoster__rowTitle}>
+        <div className={style.catalog}>
+            <div className={style.catalogPoster} style={{backgroundImage:`url('${poset}')`}}>
+                <div className="container">
+                    <div className={style.catalogPoster__row} style ={{backgroundImage:`url('${vector}')`}}>
+                        <div className = {style.catalogPoster__rowTitle}>
                             Все для Ваших Мурчиків
                         </div>
-                        <h3 class={style.catalogPoster__rowText}>
+                        <h3 className={style.catalogPoster__rowText}>
                             Відкрийте чудовий каталог з кормами та аксесуарами для вашого малюка.
                         </h3>
                     </div>
                 </div>
             </div>
 
-            <div class={style.catalogBar}>
-                <div class='container'>
-                    <div class={style.catalogBar__row}>
-                        <div class={style.catalogBarMenu}>
+            <div className={style.catalogBar}>
+                <div className='container'>
+                    <div className={style.catalogBar__row}>
+                        <div className={style.catalogBarMenu}>
                             <p>Категорії</p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
-                                <path d="M1 1L7 7L13 1" stroke="#475467" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M1 1L7 7L13 1" stroke="#475467" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                         </div>
-                        <div class={style.catalogBarCategory__row}>
-                        <div class={style.catalogBarCategory} 
+                        <div className={style.catalogBarCategory__row}>
+                        <div className={style.catalogBarCategory} 
                             onMouseEnter={() => handleMouseEnter('food')} 
                             onMouseLeave={() => handleMouseLeave('food')}
                             onClick={(event) => onSelect('food', event)}
@@ -87,64 +87,62 @@ const CatalogPageComponent = () => {
                             
                                 <p>Корм</p>
                                 <svg style={{transform:isOpen.food?'rotate(180deg)':'rotate(0deg)'}} xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                                    <path d="M1 1L6 6L11 1" stroke="#475467" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M1 1L6 6L11 1" stroke="#475467" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
-                                <div class={style.catalogBarSubCategories} style={{display:isOpen.food?'flex':'none',width:'200px',height:'140px',marginTop:'-20px',marginLeft:'35px'}}>
-                                <div class={style.subCategory} style ={{marginTop:'12px'}} onClick={(event) => onSelect('dry-food', event)}>Cухий корм</div>
-                                <div class={style.subCategory} onClick={(event) => onSelect('wet-food', event)}>Вологий корм</div>
-                                <div class={style.subCategory} onClick={(event) => onSelect('medicinal-food', event)}>Лікувальні раціони</div>
+                                <div className={style.catalogBarSubCategories} style={{display:isOpen.food?'flex':'none',width:'200px',height:'140px',marginTop:'-20px',marginLeft:'35px'}}>
+                                <div className={style.subCategory} style ={{marginTop:'12px'}} onClick={(event) => onSelect('dry-food', event)}>Cухий корм</div>
+                                <div className={style.subCategory} onClick={(event) => onSelect('wet-food', event)}>Вологий корм</div>
+                                <div className={style.subCategory} onClick={(event) => onSelect('medicinal-food', event)}>Лікувальні раціони</div>
 
                                 </div>
                             </div>
-                            <div class={style.catalogBarCategory} 
+                            <div className={style.catalogBarCategory} 
                              onMouseEnter={() => handleMouseEnter('smakoliki')} 
                             onMouseLeave={() => handleMouseLeave('smakoliki')}
                             onClick={(event) => onSelect('smakoliki', event)}
                             >{/* smakoliki */}
                                 <p  >Смаколики</p>
                                 <svg style={{transform:isOpen.smakoliki?'rotate(180deg)':'rotate(0deg)'}} xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                                    <path d="M1 1L6 6L11 1" stroke="#475467" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M1 1L6 6L11 1" stroke="#475467" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
-                                <div class={style.catalogBarSubCategories} style={{display:isOpen.smakoliki?'flex':'none'}}>
-                                        <div class={style.subCategory} onClick={(event) => onSelect('catit', event)}>Catit</div>
-                                        <div class={style.subCategory} onClick={(event) => onSelect('gimcat', event)} >Gimcat</div>
-                                        <div class={style.subCategory} onClick={(event) => onSelect('vitakraft', event)} >Vitakraft</div>
-                                        <div class={style.subCategory} onClick={(event) => onSelect('other', event)} >Інші</div>
+                                <div className={style.catalogBarSubCategories} style={{display:isOpen.smakoliki?'flex':'none'}}>
+                                        <div className={style.subCategory} onClick={(event) => onSelect('catit', event)}>Catit</div>
+                                        <div className={style.subCategory} onClick={(event) => onSelect('gimcat', event)} >Gimcat</div>
+                                        <div className={style.subCategory} onClick={(event) => onSelect('vitakraft', event)} >Vitakraft</div>
+                                        <div className={style.subCategory} onClick={(event) => onSelect('other', event)} >Інші</div>
                                     </div>
                                 </div>
-                            <div class={style.catalogBarCategory} 
+                            <div className={style.catalogBarCategory} 
                                 onMouseEnter={() => handleMouseEnter('toys')} 
                                 onMouseLeave={() => handleMouseLeave('toys')}
                                 onClick={(event) => onSelect('toys', event)}
                             >{/* toys */}
                             <p>Іграшки</p>
                             <svg style={{transform:isOpen.toys?'rotate(180deg)':'rotate(0deg)'}} xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                                <path d="M1 1L6 6L11 1" stroke="#475467" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M1 1L6 6L11 1" stroke="#475467" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
-                            <div class={style.catalogBarSubCategories} style={{display:isOpen.toys?'flex':'none',marginTop:'-35px'}}>
-                                <div class={style.subCategory} onClick={(event) => onSelect('interactive', event)}>Інтерактивні</div>
-                                <div class={style.subCategory} onClick={(event) => onSelect('electric', event)}>Електричні</div>
-                                <div class={style.subCategory} onClick={(event) => onSelect('catnip', event)}>Котяча м’ята</div>
+                            <div className={style.catalogBarSubCategories} style={{display:isOpen.toys?'flex':'none',marginTop:'-35px'}}>
+                                <div className={style.subCategory} onClick={(event) => onSelect('interactive', event)}>Інтерактивні</div>
+                                <div className={style.subCategory} onClick={(event) => onSelect('electric', event)}>Електричні</div>
+                                <div className={style.subCategory} onClick={(event) => onSelect('catnip', event)}>Котяча м’ята</div>
                             </div>
                             </div>
-                            <div class={style.catalogBarCategory} onClick={(event) => onSelect('care', event)} >
+                            <div className={style.catalogBarCategory} onClick={(event) => onSelect('care', event)} >
                                 <p>Догляд</p>
                             </div>
-                            <div class ={style.catalogBarCategory} onClick={(event) => onSelect('dishes', event)} >
+                            <div className ={style.catalogBarCategory} onClick={(event) => onSelect('dishes', event)} >
                                 <p>Посуд</p>
                             </div>
-                            <div class={style.catalogBarCategory} onClick={(event) => onSelect('accessories', event)} >
+                            <div className={style.catalogBarCategory} onClick={(event) => onSelect('accessories', event)} >
                             <p>Аксесуари</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class={style.catalog__main}>
-                <div class="container">
-                        <div class={style.catalog__cards}>
-                        {console.log(outputProducts)}
-
+            <div className={style.catalog__main}>
+                <div className="container">
+                        <div className={style.catalog__cards}>
                         {
                             productsError ? <h1 style={{textAlign:"center"}}>Произошла ошибка: {productsError}</h1>
                             :
