@@ -95,7 +95,8 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    min-height: 520px;
+
+    max-height: 520px;
 }
 .cartProduct {
     display: flex;
@@ -247,6 +248,8 @@
     text-align: center;
 }
 .productDelete {
+    background-color: initial;
+    border: none;
     cursor: pointer;
     width: 23px;
     min-width: 23px;
@@ -312,6 +315,9 @@
     }
 }
 @media (max-width:970px) {
+    .productTitle{
+        width: auto;
+    }
     .cartContinueBtn,.cartPlaceOrderBtn{
         width: 270px;
         font-size: 18px;
@@ -329,6 +335,45 @@
     .cartContinueBtn,.cartPlaceOrderBtn{
         width: 230px;
     }
+    .cartSubmit{
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+        row-gap: 20px;
+   
+    }
+    .cartTotalPrice{
+        width: 100%;
+        grid-column: span 2;
+    }
+}
+@media (max-width:730px){
+    .cartSubmit{
+        flex-direction: column;
+        row-gap: 20px;
+        column-gap: 60px;
+    }
+    .cart__topPrice {
+        margin-left: auto;
+   
+    }
+    .cartTotalPrice{
+        font-size: 20px;
+    }
+    .cartPlaceOrderBtn{
+        margin-left: auto; 
+        width: 100%;
+        font-size: 20px;
+    }
+    .cartContinueBtn{
+        width: 100%;
+        font-size: 20px;
+    }
+   .cart__top{
+    font-size: 20px;
+    margin-top: 30px;
+   }
+    
 }
 @media (max-width:700px) {
     .counterPriceAdaptive{
@@ -346,22 +391,13 @@
         margin-top: auto;
     }
     .cartSubmit{
-        flex-direction: column;
-        row-gap: 20px;
+
+        column-gap: 10px;
     }
-    .cart__topPrice {
-        margin-left: auto;
-    }
-    .cartSubmit div{
-        width: 100%;
-    }
-    #cart-price-value{
-        margin-left: auto;
-        width: 20%;
-    }
+   
 }
 
-@media (max-width:520px) {
+@media (max-width:530px) {
     .productTitle{
         font-size: 20px;
     }
@@ -378,6 +414,13 @@
     .productPrice {
         margin-right: 20px;
     }
+    .cartSubmit{
+        grid-template-columns: 1fr;
+    }
+    .cartTotalPrice{
+        width: 100%;
+        grid-column: span 1;
+    }
 }
 @media (max-width:450px) {
     .cart__topQuantity{
@@ -386,9 +429,7 @@
     .productImg {
         width: 100px;
     }
-    .productTitle {
-        font-size: 18px;
-    }
+
     .cart__topPrice{
         margin-right: 33px;
     }
@@ -401,9 +442,7 @@
     }
 }
 @media (max-width:410px) {
-    .productTitle{
-        font-size: 16px;
-    }
+
     .cart__topQuantity {
         margin-right: 10px;
     }

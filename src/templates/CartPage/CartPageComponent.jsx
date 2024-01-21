@@ -15,13 +15,13 @@ const CartPageComponent = () => {
     }
     const countTotalSum = ()=>{
         let sum = 0;
-        cartProducts.map(prod=>{
+        cartProducts?.map(prod=>{
             sum += parseInt(prod.count)* parseInt(prod.price);
         })
         setTotalSum(sum)
     }
     const incrementProduct = (id, count) => {
-        const newArr = cartProducts.map(prod => {
+        const newArr = cartProducts?.map(prod => {
             if (prod.id === id) {
                 return { ...prod, count: count };
             } else {
@@ -45,7 +45,13 @@ const CartPageComponent = () => {
     useEffect(() => {
         countTotalSum()
     }, [cartProducts]);
-    
+    const deleteProduct = (idToDelete)=>{
+      
+     
+        const newCart = cartProducts.filter(item => `${item.id}${item.option}` !== idToDelete);
+        setCartProducts(newCart);
+        cartUpdate(newCart); 
+    }
     return (
         <>
                <div className={style.cart}>
@@ -59,9 +65,9 @@ const CartPageComponent = () => {
                         <div className={style.cart__topQuantity}>Кількість</div>
                         <div className={style.cart__topPrice}>Ціна</div>
                     </div>
-                    <div className={style.cart__main} style = {{maxHeight:'520px'}}>
+                    <div className={style.cart__main} >
                         {cartProducts?(
-                            <CartListComponent cartProducts = {cartProducts} incrementProduct ={incrementProduct} decrementProduct = {decrementProduct}/>
+                            <CartListComponent cartProducts = {cartProducts} incrementProduct ={incrementProduct} decrementProduct = {decrementProduct} deleteProduct ={deleteProduct}/>
                         ):(
                             <div style ={{margin:'30px auto',fontSize:'20px'}} >Немає товарів у кошику</div>
                         )}
