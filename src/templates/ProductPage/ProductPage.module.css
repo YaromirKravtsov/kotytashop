@@ -40,7 +40,7 @@
 .mainPhoto {
     width: 100%; /* Растянуть фотографию по ширине контейнера */
     height: 100%; /* Растянуть фотографию по высоте контейнера */
-    object-fit: cover; 
+
    
 }
 
@@ -382,9 +382,14 @@
 }
 @media (max-width:600px){
     .mainPhotoWraper{
+        width: 100%;
         max-height:400px;
         min-height: 400px;
         height: 400px;
+        margin-top: 20px;
+    }
+    .page {
+        margin-top: 0px;
     }
 }
 @media (max-width:480px){
