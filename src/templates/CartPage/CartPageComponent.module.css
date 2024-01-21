@@ -1,7 +1,7 @@
 .counter {
- 
-    display: flex;
-    justify-content: space-around;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     min-width: 92px;
     width: 92px;
@@ -11,6 +11,9 @@
     margin: auto 0;
 }
 .counterMinus {
+    border: none;
+    height: 100%;
+    background-color: initial;
     cursor: pointer;
     color: #A3A3A3;
     text-align: center;
@@ -21,7 +24,9 @@
     line-height: 0px; /* 0% */
 }
 .counterValue {
-    cursor: pointer;
+    display: flex;
+    justify-content: center;
+
     color: #3A4980;
     font-family: 'Roboto';
     font-size: 22px;
@@ -30,6 +35,9 @@
     line-height: 22px; /* 100% */
 }
 .counterPlus {
+    background-color: initial;
+    height: 100%;
+    border: none;
     cursor: pointer;
     color: #3A4980;
     font-family: 'Roboto';
@@ -38,6 +46,28 @@
     font-weight: 700;
     line-height: normal;
 }
+.animation{
+    animation: shake 0.5s ease-in-out;
+   
+}
+@keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(3px); /* Перемещение вправо на 5px */
+    }
+    50% {
+      transform: translateX(-3px); /* Перемещение влево на 5px */
+    }
+    75% {
+      transform: translateX(3px); /* Перемещение вправо на 5px */
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1; /* Возврат к полной видимости */
+    }
+  }
 .cart__row {
     display: flex;
     flex-direction: column;
@@ -126,6 +156,8 @@
     text-align: center;
 }
 .productDelete {
+    background-color: initial;
+    border: none;
     cursor: pointer;
     width: 23px;
     min-width: 23px;

@@ -1,20 +1,26 @@
-import React,{useState} from 'react';
-import style from '../CartPageComponent.module.css'
+import React, { useState, useEffect } from 'react';
+import style from '../CartPageComponent.module.css';
 
+const CartItemComponent = ({ product, incrementProduct, decrementProduct, deleteProduct }) => {
+  const [count, setCount] = useState(product.count);
+  const [isAnimation, setIsAnimation] = useState(false);
 
-const CartItemComponent = ({product,incrementProduct,decrementProduct, deleteProduct}) => {
-    const [count, setCount] = useState(product.count);
-    const handleIncrement = () => {
-        setCount(count + 1);
-        incrementProduct(product.id, count + 1);
+  const handleIncrement = () => {
+    setCount(count + 1);
+    incrementProduct(product.id, count + 1);
+  }
+
+  const handleDecrement = () => {
+    if (count > 1) {
+      setCount(count - 1);
+      decrementProduct(product.id, count - 1);
+    } else {
+      setIsAnimation(true);
+      setTimeout(() => {
+        setIsAnimation(false); // Сброс анимации после завершения
+      }, 500); // Длительность анимации в миллисекундах
     }
-    const handleDecremen = () => {
-        if(count>1){
-            setCount(count - 1);
-            decrementProduct(product.id, count - 1); 
-        }
-    }
-
+  }
     return (
         <>{console.log(product)}
                             <div className={style.cartProduct}>
@@ -23,11 +29,11 @@ const CartItemComponent = ({product,incrementProduct,decrementProduct, deletePro
                                 <div className={style.productTitle}>{product.name}<br/> {product.option&&(<span style= {{color:"#979797"}}>{product.option}</span>)}</div>
                              
                                 <div className={style.counter}>
-                                    <button className={`${style.counterMinus} ${style.quantityDecrease}`}
-                                    onClick={handleDecremen}
+                                    <button className={style.counterMinus}
+                                    onClick={handleDecrement}
                                     >-</button>
-                                    <div className={`${style.counterValue} ${style.basket__cardQuantityValue}`} >{count}</div>
-                                    <button className={`${style.counterPlus}  ${style.quantityIncrease}`}
+                                    <div className={`${style.counterValue} ${isAnimation?style.animation:''}`} >{count}</div>
+                                    <button className={style.counterPlus}
                                      onClick={handleIncrement}
                                       >+</button>
                                 </div>
