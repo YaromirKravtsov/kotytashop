@@ -115,7 +115,7 @@ const ProductPageComponent = ({setCartCount}) => {
                   
                 )
                 :(
-                   <div className={style.page}>
+                   <div className={style.page}>{console.log(product)}
                    <div className="container">
                         <div className={style.pageRow}>
                             <div className={style.pageMain}>

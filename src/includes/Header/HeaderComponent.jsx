@@ -7,15 +7,18 @@ import { useLocation } from 'react-router-dom';
 const HeaderComponent = ({cartCount}) => {
    
     const location = useLocation();
-  
+    const [isClassEded, setIsClassEded] = useState(false);
+  const addClass = ()=>{
+    setIsClassEded(isClassEded?false:true)
+  }
   const isHomePage = location.pathname === '/'; 
     return (
         <>
-            <header className = {style.header}>
+            <header className = {style.header}>{console.log(isClassEded)}
             <div className="container">
                 <div className={style.header__row}>
                     <div className={style.header__left}>
-                        <div className={style.menu__icon}>
+                        <div className={`${style.menu__icon} ${isClassEded?style._active:''}`} onClick={addClass}>
                             <span></span>
                         </div>
                         <Link to="/" className={style.header__logo}>
@@ -29,7 +32,7 @@ const HeaderComponent = ({cartCount}) => {
                         </Link>
                  
                 </div>
-                    <div className={style.header__body}>
+                    <div className={`${style.header__body} ${isClassEded?style._active:''}`}>
                         <Link to = '/' className={style.link}>
                             Головна
                         </Link>
