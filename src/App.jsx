@@ -13,7 +13,7 @@ function App() {
     const cart = JSON.parse(localStorage.getItem('cartData'));
 
     const [cartCount, setCartCount] = useState(
-        cart.length
+        cart ? cart.length:0
     );
  
 
