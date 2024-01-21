@@ -2,6 +2,8 @@ import React from 'react';
 import Slider from 'react-slick';
 
 import style from './ImageSlider.module.css'
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 const ImageSlider = ({ images,setMainPhoto }) => {
 
 
@@ -35,9 +37,9 @@ const PrevArrow = ({ onClick }) => (
     <div className={style.wraper}>
         <Slider {...settings} className={style.slider}>
           {images?.map((image, index) => (
-            <div key={index} className={style.img}>
+            <button key={index} className={style.img}>
               <img src={image} alt={`Slide ${index}`} style={{ width: '100%', height: '100%', borderRadius:'8px'}} onClick={()=>setMainPhoto(image)}/>
-            </div>
+            </button>
           ))}
         </Slider>
     </div>

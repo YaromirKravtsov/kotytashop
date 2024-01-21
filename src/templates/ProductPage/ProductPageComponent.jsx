@@ -6,6 +6,8 @@ import { useFettching } from '../../hooks/useFetching';
 import MyLoader from '../../UI/Loader/MyLoader';
 import ImageSlider from '../../UI/ImageSlider/ImageSlider';
 import SuccesComponent from '../../blocks/Success/SuccesComponent';
+
+
 const ProductPageComponent = ({setCartCount}) => {
     const navigate = useNavigate();
     const { slug } = useParams();
@@ -23,7 +25,7 @@ const ProductPageComponent = ({setCartCount}) => {
      
     })
     const [succesBar, setSuccesBar] = useState(false);
-    const [isChosed, setIsChosed] = useState(true);
+    const [isChosed, setIsChosed] = useState(false);
     useEffect(() => {
         fetchProduct();
     }, []);
@@ -45,20 +47,20 @@ const ProductPageComponent = ({setCartCount}) => {
     
         return newCart;
     }
-    const handelAddToCart = () => {console.log(product.attributes)//
-        if (selectedOption) {
-            setIsChosed(true);
-            setSuccesBar(true);
-            
-        } else if(product.options){
-            setIsChosed(false);
-            return; // Exit the function if no option is selected
+    const handelAddToCart = () => {
+        if (product.attributes) {
+            if (!selectedOption) {
+                setIsChosed(true);
+                return; // Выход из функции, если не выбран ни один вариант
+            }
         }
+    
+        setSuccesBar(true);
     
         const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
         const productToCart = {
             name: product.name,
-            option: selectedOption,
+            option: selectedOption || 'Без атрибутов', // Добавьте дефолтное значение, если атрибут не выбран
             count: productCount,
             price: product.price,
             img: product.image_url
@@ -68,6 +70,7 @@ const ProductPageComponent = ({setCartCount}) => {
         setCartCount(newCartData.length)
         localStorage.setItem('cartData', JSON.stringify(newCartData));
     };
+    
     
     /* ==== */
     const handleOptionChange = (event) => {
@@ -93,8 +96,7 @@ const ProductPageComponent = ({setCartCount}) => {
 
     
     const parentStyle = hasStrong ? {     marginTop: '40px',marginBottom: '20px' } : {};
-    /* ==== */
-    /* setSuccesBar */
+
 
     return (
         <p style={parentStyle}>
@@ -114,12 +116,12 @@ const ProductPageComponent = ({setCartCount}) => {
                 )
                 :(
                    <div className={style.page}>
-                   <div class="container">{console.log(product.options)}
-                        <div class={style.pageRow}>
-                            <div class={style.pageMain}>
+                   <div className="container">
+                        <div className={style.pageRow}>
+                            <div className={style.pageMain}>
                                 <div className={style.photoBlock}>
                                     <div className={style.mainPhotoWraper}>
-                                        <img src= {mainPhoto}  class={style.mainPhoto}/>
+                                        <img src= {mainPhoto}  className={style.mainPhoto}/>
                                     </div>
                                     <ImageSlider  images = {product.gallery_images} setMainPhoto ={setMainPhoto}/>
                                 </div>
@@ -136,15 +138,15 @@ const ProductPageComponent = ({setCartCount}) => {
                                     </div>
                                     
                                     {!product.on_sale?(
-                                        <div class={style.normalPrice} > {product.regular_price} ₴     </div>
+                                        <div className={style.normalPrice} > {product.regular_price} ₴     </div>
                                     ):(
-                                       <div class={style.normalPrice}>{product.price} ₴ <del>{product.regular_price} ₴</del> </div>
+                                       <div className={style.normalPrice}>{product.price} ₴ <del>{product.regular_price} ₴</del> </div>
                                     )}
                                       
                                      
-                                      <div class={style.selectBar} style = {{border:!product.attributes&& 'none'}}>
+                                      <div className={style.selectBar} style = {{border:!product.attributes&& 'none'}}>
                                    
-                                    <div class={style.selectBarTitle}>
+                                    <div className={style.selectBarTitle}>
                                     {
                                         product.attributes &&(
                                             <>{product.attributes.name}</>
@@ -168,11 +170,12 @@ const ProductPageComponent = ({setCartCount}) => {
                                        
                                     </form>
                                     )}
-                                    <label style={{display:isChosed == false? 'block':'none'}} className={style.valid}>*Оберіть один з варіантів</label>
+                                    <label style={{ display: (isChosed && !selectedOption) ? 'block' : 'none' }} className={style.valid}>*Оберіть один з варіантів</label>
+
 
                                     </div>
-                                    <div class={style.submitMenu}>
-                                        <div class={style.counter}>
+                                    <div className={style.submitMenu}>
+                                        <div className={style.counter}>
                                             <div  onClick={decrementCount}>-</div>
                                             <div style={{color:'#3A4980'}} >{productCount}</div>
                                             <div style={{color:'#3A4980'}} onClick={incrementCount}>+</div>
@@ -189,7 +192,10 @@ const ProductPageComponent = ({setCartCount}) => {
                                 </div>
                                 <div className={style.descriptionText}>
                                 <DescriptionText>
-                                    <div dangerouslySetInnerHTML={{ __html: product.description }} />
+                                <p>
+                                <span dangerouslySetInnerHTML={{ __html: product.description }} />
+                                </p>
+
                                 </DescriptionText>
                                
                                 </div>
@@ -197,7 +203,7 @@ const ProductPageComponent = ({setCartCount}) => {
                         </div>
                    </div>
                         {succesBar&&(
-                            <SuccesComponent 
+                               <SuccesComponent 
                             text ={{
                                 main:'Товар успішно додано до кошика!',
                                 firstLine:'Продовжити покупки',
