@@ -23,13 +23,13 @@ const CartItemComponent = ({product,incrementProduct,decrementProduct, deletePro
                                 <div className={style.productTitle}>{product.name}<br/> {product.option&&(<span style= {{color:"#979797"}}>{product.option}</span>)}</div>
                              
                                 <div className={style.counter}>
-                                    <div className={`${style.counterMinus} ${style.quantityDecrease}`}
+                                    <button className={`${style.counterMinus} ${style.quantityDecrease}`}
                                     onClick={handleDecremen}
-                                    >-</div>
+                                    >-</button>
                                     <div className={`${style.counterValue} ${style.basket__cardQuantityValue}`} >{count}</div>
-                                    <div className={`${style.counterPlus}  ${style.quantityIncrease}`}
+                                    <button className={`${style.counterPlus}  ${style.quantityIncrease}`}
                                      onClick={handleIncrement}
-                                      >+</div>
+                                      >+</button>
                                 </div>
                             </div>
                             <div className={style.productPrice}>{product.price} ₴</div>
