@@ -59,6 +59,7 @@ const ProductPageComponent = ({setCartCount}) => {
     
         const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
         const productToCart = {
+            id: product.id,
             name: product.name,
             option: selectedOption || 'Без атрибутов', // Добавьте дефолтное значение, если атрибут не выбран
             count: productCount,
@@ -111,7 +112,7 @@ const ProductPageComponent = ({setCartCount}) => {
                 :
                 isProductsLoading
                 ?(
-                        <div style ={{display:"flex",justifyContent:'center',marginTop:'50px'}}> <MyLoader/></div>
+                        <div style ={{display:"flex",justifyContent:'center',marginTop:'auto',marginBottom:'auto'}}> <MyLoader/></div>
                   
                 )
                 :(
