@@ -9,21 +9,32 @@ import ProductPageComponent from './templates/ProductPage/ProductPageComponent'
 import CatalogPageComponent from './templates/CatalogPage/CatalogPageComponent';
 import CartPageComponent from './templates/CartPage/CartPageComponent';
 import { HelmetProvider } from 'react-helmet-async';
+
+import { useFettching } from './hooks/useFetching';
 function App() {
-    const [products, setProducts] = useState([]);
     const cart = JSON.parse(localStorage.getItem('cartData'));
 
     const [cartCount, setCartCount] = useState(
         cart ? cart.length:0
     );
- 
+    const [products, setProducts] = useState([]);
+    
+    const [fetchProducts,isProductsLoading,productsError] = useFettching( async()=>{
+        const data = await getHomeProd(); 
+        if(data.success) setProducts(data.data);
+     
+      })
+      
+    useEffect(() => {
+        fetchProducts();
+    }, []);
 
     return (
         <div className='wraper'>
           <HelmetProvider>
                 <HeaderComponent cartCount ={cartCount}/>
                     <Routes>
-                         <Route path="/" element={<MainPage />} />
+                         <Route path="/" element={<MainPage appProducts={products}/>} />
                          <Route path="/product/:slug" element={<ProductPageComponent setCartCount ={setCartCount}/>} />
                          <Route path="/catalog" element={<CatalogPageComponent/>} />
                          <Route path="/cart" element={<CartPageComponent/>} />

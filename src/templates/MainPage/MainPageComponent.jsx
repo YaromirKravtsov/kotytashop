@@ -14,7 +14,7 @@ import { useFettching } from '../../hooks/useFetching';
 import MyLoader from '../../UI/Loader/MyLoader';
 import { Helmet } from 'react-helmet-async';
 
-const MainPageComponent = () => {
+const MainPageComponent = ({appProducts}) => {
     const [products, setProducts] = useState([]);
     
     const [fetchProducts,isProductsLoading,productsError] = useFettching( async()=>{
@@ -25,8 +25,6 @@ const MainPageComponent = () => {
       
     useEffect(() => {
         fetchProducts();
-        
-       
     }, []);
     useEffect(() => {
        
