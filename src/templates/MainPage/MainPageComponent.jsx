@@ -36,9 +36,10 @@ const MainPageComponent = () => {
     return (
         <div className='page'>
          <Helmet>
-        <title>Главная страница</title>
-        <meta name="description" content="Описание главной страницы" />
-        {/* Другие метатеги */}
+         <title>Kotyata Shop - Все для Ваших Улюблених Котів та Кішок</title>
+         <meta name="description" content="Відкрийте широкий вибір продукції для котів у Kotyata Shop. Знайдіть якісні іграшки, корми, аксесуари та багато іншого для здоров'я та радості вашого улюбленця."/>
+
+        
       </Helmet>
 
             <div className={style.poster} style = {{backgroundImage: `url(${topBg}) ` }} loading="lazy">

@@ -7,6 +7,7 @@ import {fetchProductsApi} from '../../API/fetchApp';
 import { useFettching } from '../../hooks/useFetching';
 import MyLoader from '../../UI/Loader/MyLoader';
 import SmallCardsList from '../../blocks/SmallCards/SmallCardsList';
+import { Helmet } from 'react-helmet-async';
 const CatalogPageComponent = () => {
     
     const [products, setProducts] = useState([]);
@@ -82,6 +83,10 @@ const CatalogPageComponent = () => {
     }
     return (
         <div className={style.catalog}>
+         <Helmet>
+                <title>Каталог товарів для котів - Kotyata Shop</title>
+                <meta name="description" content="Відкрийте для себе різноманіття товарів для котів: іграшки, аксесуари, корм та багато іншого у Kotyata Shop."/>
+            </Helmet>
             <div className={style.catalogPoster} style={{backgroundImage:`url('${windWidth >620? poset:posetMb }')`}}>
                 <div className="container">
                     <div className={style.catalogPoster__row} style ={{backgroundImage:`url('${vector}')`}}>

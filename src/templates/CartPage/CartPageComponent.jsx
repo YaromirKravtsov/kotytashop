@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import style from './CartPageComponent.module.css'
 import CartListComponent from './CartList/CartListComponent';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 const CartPageComponent = () => {
     
     const [cartProducts, setCartProducts] = useState([]);
@@ -54,6 +55,10 @@ const CartPageComponent = () => {
     }
     return (
         <>
+        <Helmet>
+            <title>Кошик - Kotyata Shop | Завершіть Ваше Замовлення</title>
+            <meta name="description" content="Ваш кошик у Kotyata Shop. Перегляньте вибрані товари для котів, внесіть необхідні зміни і перейдіть до оформлення замовлення. Кошача м'ята, фантани для пиття та інші аксесуари для вашого улюбленця."/>
+      </Helmet>
                <div className={style.cart}>
             <div className="container">
                 <div className = {style.cart__row}>

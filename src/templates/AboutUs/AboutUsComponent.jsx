@@ -1,14 +1,19 @@
 import React from 'react';
 import style from './AboutUs.module.css'
 import reginaImg from '../../assets/img/about-us/story1.webp';
-import cat1 from '../../assets/img/about-us/cat1.jpg'
-import cat2 from '../../assets/img/about-us/cat2.jpg'
-import cat3 from '../../assets/img/about-us/Tokio.jpg';
-import img3 from '../../assets/img/about-us/photo_2024-01-22_22-40-01.jpg';
+import cat1 from '../../assets/img/about-us/cat1.webp'
+import cat2 from '../../assets/img/about-us/cat2.webp'
+import cat3 from '../../assets/img/about-us/Tokio.webp';
+import img3 from '../../assets/img/about-us/photo_2024-01-22_22-40-01.webp';
 import img4 from '../../assets/img/about-us/IMG_9191.webp';
+import { Helmet } from 'react-helmet-async';
 const AboutUsComponent = () => {
     return (
         <div>
+            <Helmet>
+                <title>Про нас</title>
+                <meta name="description" content="Описание главной страницы" />
+            </Helmet>
             <div class= {style.aboutus}>
                 <div class="container">
                 <div class={style.aboutus__row}>

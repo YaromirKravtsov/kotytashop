@@ -6,6 +6,7 @@ import { useFettching } from '../../hooks/useFetching';
 import MyLoader from '../../UI/Loader/MyLoader';
 import ImageSlider from '../../UI/ImageSlider/ImageSlider';
 import SuccesComponent from '../../blocks/Success/SuccesComponent';
+import { Helmet } from 'react-helmet-async';
 
 
 const ProductPageComponent = ({setCartCount}) => {
@@ -108,6 +109,13 @@ const ProductPageComponent = ({setCartCount}) => {
     };
     return (
         <>
+           <Helmet>
+                <title>{product.name ? `${product.name} - Kotyata Shop | Все для Котів та Кішок` : 'Kotyata Shop | Все для Котів та Кішок'}</title>
+                <meta name="description" content={product.name ? `Знайдіть ${product.name} у Kotyata Shop. Ідеальний вибір для вашого кота чи кішки.` : 'Стандартний опис магазину Kotyata Shop'} />
+
+
+            </Helmet>
+
             {
                 productsError ? <h1 style={{textAlign:"center"}}>Произошла ошибка: {productsError}</h1>
                 :
@@ -118,6 +126,7 @@ const ProductPageComponent = ({setCartCount}) => {
                 )
                 :(
                    <div className={style.page}>
+                
                    <div className="container">
                         <div className={style.pageRow}>
                             <div className={style.pageMain}>
