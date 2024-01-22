@@ -41,19 +41,18 @@ const SearchBarComponent = ({setMarginRigth}) => {
         return `${adjustedValue}px`;
     }
     useEffect(() => {
-        const handleResize = () => {
+     
             if (window.innerWidth <= 1255) {
                 setButtonValues(prevValues => ({ ...prevValues, maxWidth: '200px' }));
               
-            } else if (window.innerWidth <= 1125) {
-                setButtonValues(prevValues => ({ ...prevValues, maxWidth: '160px' }));
+            }  if (window.innerWidth <= 1125) {
+                setButtonValues(prevValues => ({ ...prevValues, maxWidth: '140px' }));
             }
-        };
+        
     
-        window.addEventListener('resize', handleResize);
+        
     
-        // Очистка слушателя событий при размонтировании компонента
-        return () => window.removeEventListener('resize', handleResize);
+      
     }, []);
     useEffect(() => {
         
@@ -90,7 +89,7 @@ const SearchBarComponent = ({setMarginRigth}) => {
         setInputValue('');
     }
     return (
-        <>
+        <>{console.log(buttonValues.maxWidth)}
             <form ref={excludedRef} className={style.searchBar} role="search" style = {{width:buttonValues.isOpen?buttonValues.maxWidth:'38px'}}> {console.log(searchResult)}
                 <button type="submit" aria-label="Search" onClick ={(event)=>searchHandelClik(event)} >
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
