@@ -74,6 +74,7 @@
     }.header__right{
     display: flex;
     flex-direction: row;
+    transition: margin-left 2s;
     }
     .header__basket {
     width: 38px;

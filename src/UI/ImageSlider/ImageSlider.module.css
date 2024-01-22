@@ -2,6 +2,11 @@
     min-width: 100%;
 
 }
+.slick-slider{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .slick-slide{
     min-width: 100%;
 }

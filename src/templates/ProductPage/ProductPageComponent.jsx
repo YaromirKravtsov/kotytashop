@@ -28,7 +28,8 @@ const ProductPageComponent = ({setCartCount}) => {
     const [isChosed, setIsChosed] = useState(false);
     useEffect(() => {
         fetchProduct();
-    }, []);
+    }, [slug]);
+    
     /* ====== */
     const addToCardArr = (cart, product) => {
         let isNew = true;
@@ -116,7 +117,7 @@ const ProductPageComponent = ({setCartCount}) => {
                   
                 )
                 :(
-                   <div className={style.page}>{console.log(product)}
+                   <div className={style.page}>
                    <div className="container">
                         <div className={style.pageRow}>
                             <div className={style.pageMain}>
@@ -124,7 +125,7 @@ const ProductPageComponent = ({setCartCount}) => {
                                     <div className={style.mainPhotoWraper}>
                                         <img src= {mainPhoto}  className={style.mainPhoto}/>
                                     </div>
-                                    <ImageSlider  images = {product.gallery_images} setMainPhoto ={setMainPhoto}/>
+                                    {product.gallery_images && <ImageSlider images={product.gallery_images&&product.gallery_images} setMainPhoto={setMainPhoto} />}
                                 </div>
                                 <div className={style.pageMenu}>
                                     <div className={style.pageMenu__name}>

@@ -17,24 +17,14 @@ function App() {
     const [cartCount, setCartCount] = useState(
         cart ? cart.length:0
     );
-    const [products, setProducts] = useState([]);
-    
-    const [fetchProducts,isProductsLoading,productsError] = useFettching( async()=>{
-        const data = await getHomeProd(); 
-        if(data.success) setProducts(data.data);
-     
-      })
-      
-    useEffect(() => {
-        fetchProducts();
-    }, []);
+
 
     return (
         <div className='wraper'>
           <HelmetProvider>
-                <HeaderComponent cartCount ={cartCount}/>
+                <HeaderComponent cartCount ={cartCount}/> 
                     <Routes>
-                         <Route path="/" element={<MainPage appProducts={products}/>} />
+                         <Route path="/" element={<MainPage />} />
                          <Route path="/product/:slug" element={<ProductPageComponent setCartCount ={setCartCount}/>} />
                          <Route path="/catalog" element={<CatalogPageComponent/>} />
                          <Route path="/cart" element={<CartPageComponent/>} />
