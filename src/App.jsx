@@ -11,6 +11,7 @@ import CartPageComponent from './templates/CartPage/CartPageComponent';
 import { HelmetProvider } from 'react-helmet-async';
 
 import { useFettching } from './hooks/useFetching';
+import AboutUsComponent from './templates/AboutUs/AboutUsComponent';
 function App() {
     const cart = JSON.parse(localStorage.getItem('cartData'));
 
@@ -28,7 +29,8 @@ function App() {
                          <Route path="/product/:slug" element={<ProductPageComponent setCartCount ={setCartCount}/>} />
                          <Route path="/catalog" element={<CatalogPageComponent/>} />
                          <Route path="/cart" element={<CartPageComponent/>} />
-
+                         <Route path="/about-us" element={<AboutUsComponent/>} />
+                         
                     </Routes>
                 <FooterComponent/>
             </HelmetProvider>
