@@ -8,6 +8,7 @@ import FooterComponent from './includes/Footer/FooterComponent';
 import ProductPageComponent from './templates/ProductPage/ProductPageComponent'
 import CatalogPageComponent from './templates/CatalogPage/CatalogPageComponent';
 import CartPageComponent from './templates/CartPage/CartPageComponent';
+import { HelmetProvider } from 'react-helmet-async';
 function App() {
     const [products, setProducts] = useState([]);
     const cart = JSON.parse(localStorage.getItem('cartData'));
@@ -19,15 +20,17 @@ function App() {
 
     return (
         <div className='wraper'>
-            <HeaderComponent cartCount ={cartCount}/>
-            <Routes>
-                 <Route path="/" element={<MainPage />} />
-                 <Route path="/product/:slug" element={<ProductPageComponent setCartCount ={setCartCount}/>} />
-                 <Route path="/catalog" element={<CatalogPageComponent/>} />
-                 <Route path="/cart" element={<CartPageComponent/>} />
-                 
-            </Routes>
-            <FooterComponent/>
+          <HelmetProvider>
+                <HeaderComponent cartCount ={cartCount}/>
+                    <Routes>
+                         <Route path="/" element={<MainPage />} />
+                         <Route path="/product/:slug" element={<ProductPageComponent setCartCount ={setCartCount}/>} />
+                         <Route path="/catalog" element={<CatalogPageComponent/>} />
+                         <Route path="/cart" element={<CartPageComponent/>} />
+
+                    </Routes>
+                <FooterComponent/>
+            </HelmetProvider>
         </div>
     );
 }
