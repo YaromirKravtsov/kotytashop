@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './Footer.module.css';
 import logo from '../../assets/img/logo2.png'
+import { Link } from 'react-router-dom';
 const FooterComponent = () => {
     return (
         <footer className={style.footer}>
@@ -17,7 +18,7 @@ const FooterComponent = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="29" height="22" viewBox="0 0 29 22" fill="none">
                                 <path fillRule="evenodd" clipRule="evenodd" d="M0.87868 0.87868C0 1.75736 0 3.17157 0 6V16C0 18.8284 0 20.2426 0.87868 21.1213C1.75736 22 3.17157 22 6 22H22.2857C25.1141 22 26.5284 22 27.407 21.1213C28.2857 20.2426 28.2857 18.8284 28.2857 16V6C28.2857 3.17157 28.2857 1.75736 27.407 0.87868C26.5284 0 25.1141 0 22.2857 0H6C3.17157 0 1.75736 0 0.87868 0.87868ZM5.26899 5.45366C4.80946 5.14731 4.18859 5.27149 3.88224 5.73101C3.57588 6.19054 3.70006 6.81141 4.15959 7.11776L13.0335 13.0337C13.7053 13.4815 14.5805 13.4815 15.2523 13.0337L24.1261 7.11776C24.5857 6.81141 24.7098 6.19054 24.4035 5.73101C24.0971 5.27149 23.4763 5.14731 23.0167 5.45366L14.1429 11.3696L5.26899 5.45366Z" fill="#667085"/>
                             </svg>
-                            <a href = "mailti: kotyatashop@gmail.com">kotyatashop@gmail.com</a>
+                            <a href = "mailto: kotyatashop@gmail.com">kotyatashop@gmail.com</a>
                         </div>
                         <div className={style.footerMain__rowContact}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
@@ -33,17 +34,23 @@ const FooterComponent = () => {
                         <div className={style.footerMain__rowTitle}>
                             Розділи сайту
                         </div>
-                        <a href="" className={style.footerMain__rowText}>Головна</a>
-                        <a href="" className={style.footerMain__rowText}>Каталог</a>
-                        <a href="" className={style.footerMain__rowText}>Про нас</a>
+                        <Link to ="/" className={style.footerMain__rowText}>
+                            Головна
+                        </Link>
+                        <Link to ="/catalog" className={style.footerMain__rowText}>
+                            Каталог
+                        </Link>
+                        <Link to ="/about-us" className={style.footerMain__rowText}>
+                            Про нас
+                        </Link>
                      </div>
                      <div className = {style.footerMain__row}>
                         <div className={style.footerMain__rowTitle}>
                             Інформація
                         </div>
-                        <a href="" className={style.footerMain__rowText}>Умови та положення</a>
-                        <a href="" className={style.footerMain__rowText}>Політика конфіденційності</a>
-                        
+                        <Link to ="/about-us" className={style.footerMain__rowText}>
+                        Політика конфіденційності
+                        </Link>
                      </div>
                 </div>
             </div>
