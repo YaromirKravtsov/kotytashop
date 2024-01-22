@@ -11,6 +11,9 @@ const HeaderComponent = ({cartCount}) => {
   const addClass = ()=>{
     setIsClassEded(isClassEded?false:true)
   }
+  const onGo = ()=>{
+    setIsClassEded(false)
+  }
   const isHomePage = location.pathname === '/'; 
     return (
         <>
@@ -33,14 +36,14 @@ const HeaderComponent = ({cartCount}) => {
                  
                 </div>
                     <div className={`${style.header__body} ${isClassEded?style._active:''}`}>
-                        <Link to = '/' className={style.link}>
+                        <Link to = '/' className={style.link} onClick={onGo}>
                             Головна
                         </Link>
 
-                        <Link to = '/catalog' className={style.link}>
+                        <Link to = '/catalog' className={style.link} onClick={onGo}>
                         Каталог
                         </Link>
-                        <Link to = '/about-us' className={style.link}>
+                        <Link to = '/about-us' className={style.link} onClick={onGo}>
                         Про нас
                         </Link>
                     </div>

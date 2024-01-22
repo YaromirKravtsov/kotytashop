@@ -22,11 +22,11 @@ const MainPageComponent = () => {
         if(data.success) setProducts(data.data);
      
       })
-      const [windowWidth, setWindowWidth] = useState();
+      
     useEffect(() => {
         fetchProducts();
         
-        setWindowWidth(window.innerWidth);
+       
     }, []);
     useEffect(() => {
        

@@ -57,6 +57,11 @@
       line-height: 32px; /* 133.333% */
       letter-spacing: -0.24px;
     }
+    @media (max-width:1400px) {
+    .catalogPoster__row {
+      margin-left: 0;
+      }
+    }
     @media (max-width:1000px) {
       .catalogPoster__row {
           width: 519px;

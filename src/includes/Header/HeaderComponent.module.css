@@ -123,8 +123,8 @@
     width: 250px;
     }
     .header__body._active {
-      left: 0;
-    margin-left: 212px;
+      left: 0%;
+      margin-left: 212px;
     }
     .searchBar input {
     background-color: #E9F1F4;
@@ -253,7 +253,7 @@
     }
     .header__body._lock {
     
-    left: 0px;
+    left: -30%;
     top: 0;
     
     }

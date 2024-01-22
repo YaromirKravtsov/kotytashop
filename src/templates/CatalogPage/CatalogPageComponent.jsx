@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import style from './CatalogPageComponent.module.css'
-import poset from '../../assets/img/catalog/poster-bac.png';
-import vector from '../../assets/img/catalog/Vector.png'
+import poset from '../../assets/img/catalog/poster-bac.webp';
+import posetMb from '../../assets/img/catalog/poster-bac-phone.webp';
+import vector from '../../assets/img/catalog/Vector.webp'
 import {fetchProductsApi} from '../../API/fetchApp';
 import { useFettching } from '../../hooks/useFetching';
 import MyLoader from '../../UI/Loader/MyLoader';
@@ -21,6 +22,7 @@ const CatalogPageComponent = () => {
       useEffect(() => {
         fetchProducts();
     }, []);
+    const windWidth = window.innerWidth;
     /* === */
     const [isOpen, setIsOpen] = useState({
         food:false,
@@ -56,7 +58,7 @@ const CatalogPageComponent = () => {
     };
     return (
         <div className={style.catalog}>
-            <div className={style.catalogPoster} style={{backgroundImage:`url('${poset}')`}}>
+            <div className={style.catalogPoster} style={{backgroundImage:`url('${windWidth >100? poset:poset }')`}}>
                 <div className="container">
                     <div className={style.catalogPoster__row} style ={{backgroundImage:`url('${vector}')`}}>
                         <div className = {style.catalogPoster__rowTitle}>
@@ -70,7 +72,7 @@ const CatalogPageComponent = () => {
             </div>
 
             <div className={style.catalogBar}>
-                <div className='container'>
+                <div className='container'>{console.log(windWidth)}
                     <div className={style.catalogBar__row}>
                         <div className={style.catalogBarMenu}>
                             <p>Категорії</p>
