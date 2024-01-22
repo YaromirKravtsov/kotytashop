@@ -133,7 +133,7 @@ const CatalogPageComponent = () => {
                                 <p>Догляд</p>
                             </div>
                             <div className ={style.catalogBarCategory} onClick={(event) => onSelect('dishes', event)} >
-                                <p>Посуд</p>
+                                <p>Посуд і фонтани</p>
                             </div>
                             <div className={style.catalogBarCategory} onClick={(event) => onSelect('accessories', event)} >
                             <p>Аксесуари</p>
