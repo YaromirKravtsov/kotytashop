@@ -124,6 +124,7 @@
     width: 250px;
     }
     .header__body._active {
+      left: 0;
     margin-left: 212px;
     }
     .searchBar input {

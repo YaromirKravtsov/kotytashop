@@ -12,6 +12,7 @@ import advMain from '../../assets/img/home/advantages-main.webp'
 import aboutUsImage from '../../assets/img/home/about-us.png'
 import { useFettching } from '../../hooks/useFetching';
 import MyLoader from '../../UI/Loader/MyLoader';
+import { Helmet } from 'react-helmet-async';
 
 const MainPageComponent = () => {
     const [products, setProducts] = useState([]);
@@ -21,13 +22,27 @@ const MainPageComponent = () => {
         if(data.success) setProducts(data.data);
      
       })
-
+      const [windowWidth, setWindowWidth] = useState();
     useEffect(() => {
         fetchProducts();
+        
+        setWindowWidth(window.innerWidth);
     }, []);
+    useEffect(() => {
+       
+        window.innerWidth <= 730 && setProducts([products[0], products[1]]);
+
+     
+    }, [isProductsLoading])
 
     return (
         <div className='page'>
+         <Helmet>
+        <title>Главная страница</title>
+        <meta name="description" content="Описание главной страницы" />
+        {/* Другие метатеги */}
+      </Helmet>
+
             <div className={style.poster} style = {{backgroundImage: `url(${topBg}) ` }} loading="lazy">
                 <div className={style.posterRow}>{console.log(products)}
                     <h2 className={style.posterTitle}>Відчиніть двері у світ котячих чудес  </h2>
@@ -47,12 +62,13 @@ const MainPageComponent = () => {
                             :
                             isProductsLoading
                             ?(
-                                <div className={style.products__cards} style ={{justifyContent:'center',alignItems:'center'}}>
+                                
                                     <div style ={{display:"flex",justifyContent:'center',marginTop:'50px'}}> <MyLoader/></div>
-                                </div>
+                            
                             )
                             :(
                                 <div className={style.products__cards}>
+                          
                                     <SmallCardsList products = {products}/> 
                                 </div>
                             )
