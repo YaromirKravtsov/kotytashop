@@ -55,6 +55,7 @@ flex-direction: column;
 
 /* Пример стилей для класса .container */
 .container {
+  height: 100%;
   width: 100%; /* Ширина контейнера на всю доступную ширину */
   max-width: 1200px; /* Максимальная ширина контейнера, чтобы ограничить его размер */
   margin: 0 auto; /* Центрирование контейнера по горизонтали */
@@ -87,5 +88,9 @@ left: 0;
 .slick-slider{
   display: flex !important;
   width: 100%;
+  flex-direction: row;
+}
+.row{
+  display: flex;
   flex-direction: row;
 }

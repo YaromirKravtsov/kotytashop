@@ -22,6 +22,7 @@ const CatalogPageComponent = () => {
       useEffect(() => {
         fetchProducts();
     }, []);
+    const [isBarOpen, setIsBarOpen] = useState(false);
     const windWidth = window.innerWidth;
     /* === */
     const [isOpen, setIsOpen] = useState({
@@ -50,15 +51,38 @@ const CatalogPageComponent = () => {
     }
     const onSelect = (category, event) => {
         event.stopPropagation();
-        const filteredProducts = filterProductsByCategory(products, category);
+        if(windWidth<=620){
+            console.log('toys');
+            if(category == 'food' ||category =='smakoliki'|| category == 'toys'){
+             
+                setIsOpen({
+                    ...isOpen,
+                    [category]: !isOpen[category],
+                  });
+            }else{
+                const filteredProducts = filterProductsByCategory(products, category);
+                setIsBarOpen(false);
+                setOutputProducts(
+                    filteredProducts
+                )
+            }
 
-        setOutputProducts(
-            filteredProducts
-        )
+
+        }else{
+            const filteredProducts = filterProductsByCategory(products, category);
+
+            setOutputProducts(
+                filteredProducts
+            )
+        }
+        
     };
+    const handleBarClick = ()=>{
+        setIsBarOpen(isBarOpen?false:true)
+    }
     return (
         <div className={style.catalog}>
-            <div className={style.catalogPoster} style={{backgroundImage:`url('${windWidth >100? poset:poset }')`}}>
+            <div className={style.catalogPoster} style={{backgroundImage:`url('${windWidth >620? poset:posetMb }')`}}>
                 <div className="container">
                     <div className={style.catalogPoster__row} style ={{backgroundImage:`url('${vector}')`}}>
                         <div className = {style.catalogPoster__rowTitle}>
@@ -74,23 +98,24 @@ const CatalogPageComponent = () => {
             <div className={style.catalogBar}>
                 <div className='container'>{console.log(windWidth)}
                     <div className={style.catalogBar__row}>
-                        <div className={style.catalogBarMenu}>
+                        <div className={style.catalogBarMenu} onClick={handleBarClick}>
                             <p>Категорії</p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
                                 <path d="M1 1L7 7L13 1" stroke="#475467" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                         </div>
-                        <div className={style.catalogBarCategory__row}>
+                        <div className={`${style.catalogBarCategory__row} ${isBarOpen?style.show:''}`} >
                         <div className={style.catalogBarCategory} 
                             onMouseEnter={() => handleMouseEnter('food')} 
                             onMouseLeave={() => handleMouseLeave('food')}
                             onClick={(event) => onSelect('food', event)}
                             >
-                            
-                                <p>Корм</p>
-                                <svg style={{transform:isOpen.food?'rotate(180deg)':'rotate(0deg)'}} xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                                    <path d="M1 1L6 6L11 1" stroke="#475467" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
+                                <div className="row">
+                                    <p>Корм</p>
+                                    <svg style={{transform:isOpen.food?'rotate(180deg)':'rotate(0deg)'}} xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                        <path d="M1 1L6 6L11 1" stroke="#475467" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                </div>
                                 <div className={style.catalogBarSubCategories} style={{display:isOpen.food?'flex':'none',width:'200px',height:'140px',marginTop:'-20px',marginLeft:'35px'}}>
                                 <div className={style.subCategory} style ={{marginTop:'12px'}} onClick={(event) => onSelect('dry-food', event)}>Cухий корм</div>
                                 <div className={style.subCategory} onClick={(event) => onSelect('wet-food', event)}>Вологий корм</div>
@@ -103,10 +128,15 @@ const CatalogPageComponent = () => {
                             onMouseLeave={() => handleMouseLeave('smakoliki')}
                             onClick={(event) => onSelect('smakoliki', event)}
                             >{/* smakoliki */}
-                                <p  >Смаколики</p>
-                                <svg style={{transform:isOpen.smakoliki?'rotate(180deg)':'rotate(0deg)'}} xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                                    <path d="M1 1L6 6L11 1" stroke="#475467" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
+                                <div className="row">
+                                    <p  >Смаколики</p>
+                                    <svg style={{transform:isOpen.smakoliki?'rotate(180deg)':'rotate(0deg)'}} xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                        <path d="M1 1L6 6L11 1" stroke="#475467" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                    {console.log(isOpen.smakoliki && windWidth)}
+                                </div>
+                   
+                           
                                 <div className={style.catalogBarSubCategories} style={{display:isOpen.smakoliki?'flex':'none'}}>
                                         <div className={style.subCategory} onClick={(event) => onSelect('catit', event)}>Catit</div>
                                         <div className={style.subCategory} onClick={(event) => onSelect('gimcat', event)} >Gimcat</div>
@@ -119,10 +149,13 @@ const CatalogPageComponent = () => {
                                 onMouseLeave={() => handleMouseLeave('toys')}
                                 onClick={(event) => onSelect('toys', event)}
                             >{/* toys */}
+                             <div className="row">
                             <p>Іграшки</p>
-                            <svg style={{transform:isOpen.toys?'rotate(180deg)':'rotate(0deg)'}} xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                                <path d="M1 1L6 6L11 1" stroke="#475467" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
+                           
+                                <svg style={{transform:isOpen.toys?'rotate(180deg)':'rotate(0deg)'}} xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                    <path d="M1 1L6 6L11 1" stroke="#475467" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </div>
                             <div className={style.catalogBarSubCategories} style={{display:isOpen.toys?'flex':'none',marginTop:'-35px'}}>
                                 <div className={style.subCategory} onClick={(event) => onSelect('interactive', event)}>Інтерактивні</div>
                                 <div className={style.subCategory} onClick={(event) => onSelect('electric', event)}>Електричні</div>
