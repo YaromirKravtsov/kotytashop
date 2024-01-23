@@ -46,7 +46,7 @@ const SearchBarComponent = ({setMarginRigth}) => {
                 setButtonValues(prevValues => ({ ...prevValues, maxWidth: '200px' }));
               
             }  if (window.innerWidth <= 1125) {
-                setButtonValues(prevValues => ({ ...prevValues, maxWidth: '140px' }));
+                setButtonValues(prevValues => ({ ...prevValues, maxWidth: '160px' }));
             }
         
     
@@ -100,7 +100,7 @@ const SearchBarComponent = ({setMarginRigth}) => {
                 style = {{width:buttonValues.isOpen?'80%':'0px'}}
                 value = {inputValue}
                 onChange={e=> setInputValue(e.target.value)}/>
- {console.log(buttonValues.maxWidth)}
+
             </form>
             <div className={style.searchBarResult} style = {{display:buttonValues.isOpen?'block':'none',width:buttonValues.isOpen?buttonValues.maxWidth:'38px'}}>
                 {searchResult&& inputValue !==''&&(

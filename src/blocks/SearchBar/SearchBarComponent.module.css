@@ -46,16 +46,7 @@
     height: 20px;
     margin: 7.5px;
     }
-    @media (max-width: 1255px){
-  /*       .searchBar:hover {
-          width: 200px;
-        }
-    }
-    @media (max-width: 1125px){
-        .searchBar:hover {
-          width: 160px;
-        } */
-    }
+
     .searchBarResult{
         width: 160px;
         height: 0;
@@ -132,4 +123,14 @@
         
  
         scrollbar-color: #888 #f1f1f1; /* Цвет ползунка и дорожки */
+    }
+    @media (max-width: 1255px){
+        .item img{
+            width: 48px;
+            height: 48px;
+        }
+        .title{
+            margin-left: 2px;
+            font-size: 15px;
+        }
     }

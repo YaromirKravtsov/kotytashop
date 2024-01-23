@@ -7,7 +7,7 @@ const SuccesComponent = ({text, firstLink,secondLink,succesBar}) => {
     return (
         <div class={style.success} style ={{display: succesBar? 'block':'none'}}>
             <div class={style.success_icon}>
-            <img src = {gif} alt=""/>
+                <img src = {gif} alt=""/>
             </div>
             <div class={style.success__text}>{text.main}</div>
             <div class={style.successBtn__row}>

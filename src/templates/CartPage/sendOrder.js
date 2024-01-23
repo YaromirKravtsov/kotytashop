@@ -10,19 +10,21 @@ export const sendOrder =async (cart,customer)=>{
 Пошта: ${customer.email}
 `;
 let cartString = '';
+let i =1
+let sumPrice = 0;
 cart.forEach(element => {
     cartString += `
+    Товар ${i}
     Назва: ${element.name}${element.option ? ` (${element.option})` : ''}
     Ціна: ${element.price}
     Кількість: ${element.count}
     `;
+    i++;
+    sumPrice += parseInt(element.price) * parseInt(element.count) 
 });
 
 message += 'Кошик:' + cartString;
-
-       
-        message+= 'Кошик:  '+cartString;
-       
+message += 'Ціна кошику:' + sumPrice;
         const MAX_LENGTH = 1000;
         for (let i = 0; i < message.length; i += MAX_LENGTH) {
             const messagePart = message.substring(i, Math.min(message.length, i + MAX_LENGTH));

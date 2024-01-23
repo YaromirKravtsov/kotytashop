@@ -100,6 +100,9 @@ const CartPageComponent = () => {
 
         if (response.ok) {
             setIsSuccess(true);
+            cartUpdate([])
+          
+
         } else {
             alert('Щось пішло не так, напишіть у підтримку');
         }
@@ -163,8 +166,8 @@ const CartPageComponent = () => {
                             firstLine:'До ассортимету',
                             secondLink:'На головну'
                         }}
-                        firstLink ={'/'}
-                        secondLink ={'catalog'}
+                        firstLink ='catalog'
+                        secondLink =''
                         />
                     </div>
                 </div>

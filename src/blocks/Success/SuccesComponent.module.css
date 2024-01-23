@@ -72,3 +72,16 @@
 .success__vica:hover{
     color: white !important;
 }
+@media (max-width: 500px){
+   .success{
+    width: 100%;
+    
+   }
+   .successBtn__row{
+    column-gap: 7px;
+   }
+   .success__cshp,.success__vica{
+
+   }
+  
+}
