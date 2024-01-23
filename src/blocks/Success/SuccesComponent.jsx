@@ -13,6 +13,7 @@ const SuccesComponent = ({text, firstLink,secondLink,succesBar}) => {
             <div class={style.successBtn__row}>
                 <Link to = {'/'+firstLink} class ={style.success__cshp} >
                     {text.firstLine}
+                   
                 </Link>
                 <Link to = {'/'+secondLink} class={style.success__vica}>
                     {text.secondLink}

@@ -32,23 +32,24 @@ const ProductPageComponent = ({setCartCount}) => {
     }, [slug]);
     
     /* ====== */
-    const addToCardArr = (cart, product) => {
-        let isNew = true;
+    const addToCartArr = (cart, productToAdd) => {
+        let productExists = false;
         let newCart = cart.map(element => {
-            if (element.name === product.name && element.option === product.option) {
-                isNew = false;
-                return { ...element, count: element.count + 1 };
+            if (element.name === productToAdd.name && element.option === productToAdd.option) {
+                productExists = true;
+                return { ...element, count: element.count + productToAdd.count };
             } else {
                 return element;
             }
         });
     
-        if (isNew) {
-            newCart = [...newCart, {...product, count: 1}];
+        if (!productExists) {
+            newCart = [...newCart, productToAdd];
         }
     
         return newCart;
     }
+    
     const handelAddToCart = () => {
         if (product.attributes) {
             if (!selectedOption) {
@@ -60,16 +61,17 @@ const ProductPageComponent = ({setCartCount}) => {
         setSuccesBar(true);
     
         const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
+        {console.log(productCount)}
         const productToCart = {
             id: product.id,
             name: product.name,
-            option: selectedOption || 'Без атрибутов', // Добавьте дефолтное значение, если атрибут не выбран
+            option: selectedOption || '', // Добавьте дефолтное значение, если атрибут не выбран
             count: productCount,
             price: product.price,
             img: product.image_url
         };
     
-        const newCartData = addToCardArr(cartData, productToCart);
+        const newCartData = addToCartArr(cartData, productToCart);
         setCartCount(newCartData.length)
         localStorage.setItem('cartData', JSON.stringify(newCartData));
     };
